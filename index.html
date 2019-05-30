@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <style>
+        #box {
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body id="body">
+
+    <div id="box"></div>
+
+    <script>
+        var body = document.getElementsByTagName('body')[0];
+        var i = 0;
+        $(document).ready(function() {
+            $(document).mousemove(function() {
+                $("#box").css({
+                    height: event.pageY,
+                    width: event.pageX,
+                });
+
+            })
+            $(document).click(function() {
+                var div1 = document.createElement('div');
+                div1.setAttribute('id', 'box');
+                document.body.insertBefore(div1, body.childNodes[0]);
+                if (i == 0) {
+                    div1.style.background = "blue";
+                    i = 1;
+                } else {
+                    div1.style.background = "red";
+                    i = 0;
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>
